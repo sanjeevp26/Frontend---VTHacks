@@ -11,6 +11,12 @@ import Preferences from './Preferences';
 import Menu from './Menu'; 
 import Bookride from './Bookride';
 import Offerride from './Offerride';
+import UserSelectionDetails from './UserSelectionDetails';
+import PassengerList from './PassengerList';
+import TripDetails from './TripDetails';
+import StartTrip from './StartTrip';
+import TripCheck from './TripCheck';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +31,11 @@ export type RootStackParamList = {
   Menu: undefined;
   Bookride: undefined;
   Offerride: undefined;
+  UserSelectionDetails: undefined;
+  PassengerList: undefined;
+  TripDetails: undefined;
+  TripCheck: undefined;
+  StartTrip: undefined;
 };
 
 
@@ -82,8 +93,24 @@ const App = () => {
           component={Offerride}
           // options={{ headerShown: false }}  
         />
+        <Stack.Screen
+          name="UserSelectionDetails"
+          component={UserSelectionDetails}
+          options={{ title: 'Passenger Details' }} // Add the new screen
+        />
+        <Stack.Screen
+          name="PassengerList"
+          component={PassengerList}
+          options={{ headerShown: false }} // Add the PassengerList screen
+        />
+        <Stack.Screen
+          name="TripDetails"
+          component={TripDetails}
+          options={{ title: 'Trip Details' }} // Add the TripDetails screen
+        />
+        <Stack.Screen name="TripCheck" component={TripCheck} />
+        <Stack.Screen name="StartTrip" component={StartTrip} />
       </Stack.Navigator>
-      
     </NavigationContainer>
   );
 };

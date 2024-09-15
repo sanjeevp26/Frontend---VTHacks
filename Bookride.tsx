@@ -122,7 +122,7 @@ const BookRide = () => {
       )}
 
       {/* Search Button */}
-      <Button mode="contained" style={styles.searchButton} onPress={() => console.log('Search clicked')}>
+      <Button mode="contained" style={styles.searchButton} onPress={() => navigation.navigate('Offerride')}>
         SEARCH
       </Button>
     </View>

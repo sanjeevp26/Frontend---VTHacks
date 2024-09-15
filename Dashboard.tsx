@@ -32,6 +32,13 @@ const Dashboard = () => {
           source={{ uri: 'https://example.com/calendar-icon-url.png' }} // Replace with your calendar icon
           style={styles.icon}
         />
+        <Button
+          mode="contained"
+          style={styles.actionButton}
+          onPress={() => navigation.navigate('TripDetails')}
+        >
+          View Trip Details
+        </Button>
       </View>
 
       {/* Action Buttons */}
@@ -46,7 +53,7 @@ const Dashboard = () => {
       <Button
         mode="contained"
         style={styles.actionButton}
-        onPress={() => navigation.navigate('Offerride')}
+        onPress={() => navigation.navigate('PassengerList')}
       >
         Offer a ride
       </Button>

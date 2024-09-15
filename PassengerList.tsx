@@ -33,7 +33,7 @@ const PassengerList = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Passenger List</Text>
+      <Text style={styles.title}>Driver List</Text>
       <FlatList
         data={passengers}
         keyExtractor={item => item.id}
@@ -61,7 +61,7 @@ const PassengerList = () => {
             </View>
             <View style={styles.buttonContainer}>
               <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('UserSelectionDetails', { passengerId: item.id })}>
-                <Text style={styles.buttonText}>Passenger Details</Text>
+                <Text style={styles.buttonText}>Driver Details</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Chat', { passengerId: item.id })}>
                 <Text style={styles.buttonText}>Chat Now</Text>

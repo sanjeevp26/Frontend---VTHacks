@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 import { Button } from 'react-native-paper';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from './App';
@@ -12,63 +12,63 @@ type Props = {
 
 const HomeScreen: React.FC<Props> = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.imageRow}>
-        <Image 
-          source={require('./assets/car.png')} 
-          style={styles.carImage}
-        />
-      </View>
-      <Text style={styles.title}>Carpool and chill</Text>
-      
-      <Button
-        mode="contained"
-        style={styles.button}
-        onPress={() => navigation.navigate('SignUp')}
-      >
-        Sign Up
-      </Button>
+    <ImageBackground
+      source={require('./assets/Home_bg.png')} // Ensure this path matches your image location
+      style={styles.background}
+    >
+      <View style={styles.overlay}>
+        {/* Adding two buttons aligned horizontally */}
+        <View style={styles.buttonContainer}>
+          <Button
+            mode="contained"
+            contentStyle={{ backgroundColor: '#B45937' }} // Explicitly set background color here
+            style={styles.button}
+            labelStyle={styles.buttonLabel}
+            onPress={() => navigation.navigate('SignUp')}
+          >
+            Sign Up
+          </Button>
 
-      <Button
-        mode="contained"
-        style={styles.button}
-        onPress={() => navigation.navigate('LogIn')}
-      >
-        Log in
-      </Button>
-    </View>
+          <Button
+            mode="contained"
+            contentStyle={{ backgroundColor: '#B45937' }} // Explicitly set background color here
+            style={styles.button}
+            labelStyle={styles.buttonLabel}
+            onPress={() => navigation.navigate('LogIn')}
+          >
+            Log In
+          </Button>
+        </View>
+      </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
     flex: 1,
-    backgroundColor: '#FDE4D0',
+    resizeMode: 'cover',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
   },
-  imageRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginBottom: 20,
+  overlay: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingBottom: 50, // To keep the buttons above the bottom edge
   },
-  carImage: {
-    width: 600,
-    height: 360,
-    resizeMode: 'contain',
-    marginLeft: 200,
-  },
-  title: {
-    fontSize: 36,
-    fontWeight: 'bold',
-    color: '#4E4E4E',
-    marginBottom: 30,
+  buttonContainer: {
+    flexDirection: 'row', // Align buttons horizontally
+    justifyContent: 'space-between',
+    width: '80%',
   },
   button: {
-    backgroundColor: '#7C1C39',
-    marginBottom: 15,
-    width: 200,
+    borderRadius: 10,
+    width: '45%', // Make sure both buttons take equal width
+  },
+  buttonLabel: {
+    color: '#FFFFFF', // White text for contrast
+    fontSize: 18,
   },
 });
 

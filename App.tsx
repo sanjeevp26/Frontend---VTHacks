@@ -16,6 +16,8 @@ import PassengerList from './PassengerList';
 import TripDetails from './TripDetails';
 import StartTrip from './StartTrip';
 import TripCheck from './TripCheck';
+import CreateRide from './CreateRide';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -36,6 +38,7 @@ export type RootStackParamList = {
   TripDetails: undefined;
   TripCheck: undefined;
   StartTrip: undefined;
+  CreateRide: undefined;
 };
 
 
@@ -110,6 +113,11 @@ const App = () => {
         />
         <Stack.Screen name="TripCheck" component={TripCheck} />
         <Stack.Screen name="StartTrip" component={StartTrip} />
+        <Stack.Screen
+          name="CreateRide"
+          component={CreateRide}
+          options={{ title: 'Create Ride' }} // Add the CreateRide screen
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

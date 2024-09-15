@@ -3,7 +3,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
-import HomeScreen from './Home'; // Assuming you have a HomeScreen
+import HomeScreen from './Home'; 
+import Dashboard from './Dashboard'; 
+import IDVerify from './IDVerify'; 
+import Photomodel from './Photomodel'; 
+import Preferences from './Preferences'; 
+import Menu from './Menu'; 
+import Bookride from './Bookride';
+import Offerride from './Offerride';
 
 const Stack = createNativeStackNavigator();
 
@@ -11,6 +18,13 @@ export type RootStackParamList = {
   Home: undefined;
   SignUp: undefined;
   LogIn: undefined;
+  Preferences: undefined;
+  IDVerify: undefined;
+  Photomodel: undefined;
+  Dashboard: undefined;
+  Menu: undefined;
+  Bookride: undefined;
+  Offerride: undefined;
 };
 
 
@@ -31,9 +45,45 @@ const App = () => {
         <Stack.Screen
           name="LogIn"
           component={LogIn}
-          options={{ headerShown: false }}  
+          // options={{ headerShown: false }}  
+        />
+        <Stack.Screen
+          name="IDVerify"
+          component={IDVerify}
+          // options={{ headerShown: false }}  
+        />
+        <Stack.Screen
+          name="Photomodel"
+          component={Photomodel}
+          // options={{ headerShown: false }}  
+        />
+        <Stack.Screen
+          name="Preferences"
+          component={Preferences}
+          // options={{ headerShown: false }}  
+        />
+        <Stack.Screen
+          name="Dashboard"
+          component={Dashboard}
+          // options={{ headerShown: false }}  
+        />
+        <Stack.Screen
+          name="Menu"
+          component={Menu}
+          // options={{ headerShown: false }}  
+        />
+        <Stack.Screen
+          name="Bookride"
+          component={Bookride}
+          // options={{ headerShown: false }}  
+        />
+        <Stack.Screen
+          name="Offerride"
+          component={Offerride}
+          // options={{ headerShown: false }}  
         />
       </Stack.Navigator>
+      
     </NavigationContainer>
   );
 };

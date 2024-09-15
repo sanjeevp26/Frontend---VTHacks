@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from './App';  // Adjust this path as needed
 
 const SignUp = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.container}>
@@ -65,8 +66,19 @@ const SignUp = () => {
         theme={{ colors: { text: '#FFFFFF', placeholder: '#FFFFFF', background: '#7C1C39' } }} 
       />
 
-      <Button mode="contained" style={styles.registerButton}>
-        Register
+      {/* Two Extra Buttons: Passenger and Drive & Pass */}
+      <View style={styles.buttonContainer}>
+        <Button mode="contained" style={styles.extraButton}>
+          Passenger
+        </Button>
+        <Button mode="contained" style={styles.extraButton}>
+          Drive & Pass
+        </Button>
+      </View>
+
+      {/* Navigate to IDVerify when Verify is pressed */}
+      <Button mode="contained" style={styles.verifyButton} onPress={() => navigation.navigate('IDVerify')}>
+        Verify
       </Button>
 
       <Text style={styles.footerText}>
@@ -108,7 +120,17 @@ const styles = StyleSheet.create({
     color: '#FFFFFF', 
     height: 55, 
   },
-  registerButton: {
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+  },
+  extraButton: {
+    backgroundColor: '#7C1C39',
+    width: '45%',
+    borderRadius: 20,
+  },
+  verifyButton: {
     backgroundColor: '#33372C', 
     padding: 10,
     marginTop: 10,
